@@ -1,0 +1,244 @@
+﻿@model Furniture_Project.Models.Barang
+
+@{
+    Layout = "_LayoutUser2";
+}
+
+<div class="page-home">
+    <div class="container">
+        <div class="content">
+            <div class="row">
+                <div class="sidebar-3 sidebar-collection col-lg-3 col-md-3 col-sm-4">
+                    <div class="sidebar-block">
+                        <div class="title-block">
+                            Best seller
+                        </div>
+                        <div class="product-content tab-content">
+                            <div class="row">
+                                <div class="item col-md-12">
+                                    <div class="product-miniature item-one first-item d-flex">
+                                        <div class="thumbnail-container border">
+                                            <a href="#">
+                                                <img class="img-fluid image-cover" src="~/home/img/product/1.jpg" alt="img">
+                                                <img class="img-fluid image-secondary" src="~/home/img/product/22.jpg" alt="img">
+                                            </a>
+                                        </div>
+                                        <div class="product-description">
+                                            <div class="product-groups">
+                                                <div class="product-title">
+                                                    <a href="#">Nulla et justo augue</a>
+                                                </div>
+                                                <div class="rating">
+                                                    <div class="star-content">
+                                                        <div class="star"></div>
+                                                        <div class="star"></div>
+                                                        <div class="star"></div>
+                                                        <div class="star"></div>
+                                                        <div class="star"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="product-group-price">
+                                                    <div class="product-price-and-shipping">
+                                                        <span class="price">£28.08</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item col-md-12">
+                                    <div class="product-miniature item-one first-item d-flex">
+                                        <div class="thumbnail-container border">
+                                            <a href="#">
+                                                <img class="img-fluid image-cover" src="~/home/img/product/2.jpg" alt="img">
+                                                <img class="img-fluid image-secondary" src="~/home/img/product/11.jpg" alt="img">
+                                            </a>
+                                        </div>
+                                        <div class="product-description">
+                                            <div class="product-groups">
+                                                <div class="product-title">
+                                                    <a href="#">Nulla et justo augue</a>
+                                                </div>
+                                                <div class="rating">
+                                                    <div class="star-content">
+                                                        <div class="star"></div>
+                                                        <div class="star"></div>
+                                                        <div class="star"></div>
+                                                        <div class="star"></div>
+                                                        <div class="star"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="product-group-price">
+                                                    <div class="product-price-and-shipping">
+                                                        <span class="price">£31.08</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item col-md-12">
+                                    <div class="product-miniature item-one first-item d-flex">
+                                        <div class="thumbnail-container border">
+                                            <a href="#">
+                                                <img class="img-fluid image-cover" src="~/home/img/product/3.jpg" alt="img">
+                                                <img class="img-fluid image-secondary" src="~/home/img/product/14.jpg" alt="img">
+                                            </a>
+                                        </div>
+                                        <div class="product-description">
+                                            <div class="product-groups">
+                                                <div class="product-title">
+                                                    <a href="#">Nulla et justo augue</a>
+                                                </div>
+                                                <div class="rating">
+                                                    <div class="star-content">
+                                                        <div class="star"></div>
+                                                        <div class="star"></div>
+                                                        <div class="star"></div>
+                                                        <div class="star"></div>
+                                                        <div class="star"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="product-group-price">
+                                                    <div class="product-price-and-shipping">
+                                                        <span class="price">£20.08</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-8 col-lg-9 col-md-9">
+                    <div class="main-product-detail">
+                        <form asp-action="AddPesanan" asp-route-id="@Model.Id" method="POST" enctype="multipart/form-data">
+                            <h2>@Model.NamaBarang</h2>
+                            <div class="product-single row">
+                                <div class="product-detail col-xs-12 col-md-5 col-sm-5">
+                                    <div class="page-content" id="content">
+                                        <div class="images-container">
+                                            <div class="js-qv-mask mask tab-content border">
+                                                <div id="item1" class="tab-pane fade active in show">
+                                                    <img src="@Model.Image" alt="img">
+                                                </div>
+                                                <div class="layer hidden-sm-down" data-toggle="modal" data-target="#product-modal">
+                                                    <i class="fa fa-expand"></i>
+                                                </div>
+                                            </div>
+                                            <div class="modal fade" id="product-modal" role="dialog">
+                                                <div class="modal-dialog">
+
+                                                    <!-- Modal content-->
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <div class="modal-body">
+                                                                <div class="product-detail">
+                                                                    <div>
+                                                                        <div class="images-container">
+                                                                            <div class="js-qv-mask mask tab-content">
+                                                                                <div id="modal-item1" class="tab-pane fade active in show">
+                                                                                    <img src="@Model.Image" alt="img">
+                                                                                </div>
+                                                                            </div>
+                                                                            <ul class="product-tab nav nav-tabs">
+                                                                                <li class="active">
+                                                                                    <a href="#modal-item1" data-toggle="tab" class=" active show">
+                                                                                        <img src="@Model.Image" alt="img">
+                                                                                    </a>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product-info col-xs-12 col-md-7 col-sm-7">
+                                    <div class="detail-description">
+                                        <div class="price-del">
+                                            <span class="price">Rp. @Model.Harga</span>
+                                        </div>
+                                        <p class="description"></p>
+                                        <div class="option has-border d-lg-flex size-color">
+                                        </div>
+                                        <div class="has-border cart-area">
+                                            <div class="product-quantity">
+                                                <div class="qty">
+                                                    <div class="input-group">
+                                                        <div class="quantity">
+                                                            <span class="control-label">QTY : </span>
+                                                            <input type="number" name="Jumlah" id="quantity_wanted" value="1" class="input-group form-control">
+                                                        </div>
+                                                        <span class="add">
+
+                                                            <input type="hidden" asp-for="NamaBarang" name="NamaBarang" value="@Model.NamaBarang">
+
+                                                            <input type="hidden" asp-for="Image" name="Image" value="@Model.Image">
+                                                            <input type="hidden" asp-for="Harga" name="Harga" value="@Model.Harga">
+                                                            <input type="submit" class="btn btn-outline-success" value="Tambahkan Ke Keranjang">
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                            <p class="product-minimal-quantity">
+                                            </p>
+                                        </div>
+                                        <div class="rating-comment has-border d-flex">
+                                            <div class="review-description d-flex">
+                                                <span>REVIEW :</span>
+                                                <div class="rating">
+                                                    <div class="star-content">
+                                                        <div class="star"></div>
+                                                        <div class="star"></div>
+                                                        <div class="star"></div>
+                                                        <div class="star"></div>
+                                                        <div class="star"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="read after-has-border">
+                                                <a href="">
+                                                    <i class="fa fa-commenting-o color" aria-hidden="true"></i>
+                                                    <span>READ REVIEWS</span>
+                                                </a>
+                                            </div>
+                                            <div class="apen after-has-border">
+                                                <a href="">
+                                                    <i class="fa fa-pencil color" aria-hidden="true"></i>
+                                                    <span>WRITE A REVIEW</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="review">
+                                <ul class="nav nav-tabs">
+                                    <li class="active">
+                                        <a data-toggle="tab" href="#description" class="active show">Description</a>
+                                    </li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div id="description" class="tab-pane fade in active show">
+                                        <p>@Model.Deskripsi</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -2,9 +2,11 @@ using Furniture_Project.Data;
 using Furniture_Project.Models;
 using Furniture_Project.Repositories.AkunRepository;
 using Furniture_Project.Repositories.BarangRepository;
+using Furniture_Project.Repositories.PesananRepository;
 using Furniture_Project.Services;
 using Furniture_Project.Services.AkunService;
 using Furniture_Project.Services.BarangService;
+using Furniture_Project.Services.PesananService;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -49,6 +51,9 @@ namespace Furniture_Project
             services.AddScoped<IBarangRepository, BarangRepository>();
             services.AddScoped<IBarangService, BarangService>();
 
+            services.AddScoped<IPesananRepository, PesananRepository>();
+            services.AddScoped<IPesananService, PesananService>();
+
             services.AddTransient<FileService>();
 
             services.AddTransient<EmailService>();
@@ -68,7 +73,7 @@ namespace Furniture_Project
             else
             {
                 app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+
                 app.UseHsts();
             }
             

@@ -12,7 +12,7 @@
                 <div class="col-md-3 col-xs-12">
                     <div class="product-miniature js-product-miniature item-one first-item">
                         <div class="thumbnail-container">
-                            <a asp-action="DetailBarang" asp-route-id="@item.Id">
+                            <a asp-action="Detail" asp-route-id="@item.Id">
                                 <img class="img-fluid" src="@item.Image" alt="img">
                             </a>
                             <div class="product-flags discount">@item.Stok</div>
@@ -27,7 +27,7 @@
                         <div class="product-description">
                             <div class="product-groups">
                                 <div class="product-title">
-                                    <a href="product-detail.php">@item.NamaBarang</a>
+                                    <a asp-action="Detail">@item.NamaBarang</a>
                                 </div>
                                 <div class="rating">
                                     <div class="star-content">

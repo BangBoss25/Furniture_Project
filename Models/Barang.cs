@@ -14,8 +14,10 @@ namespace Furniture_Project.Models
         public string NamaBarang { get; set; }
         public string Image { get; set; }
         [Required]
+        [RegularExpression(@"^[0-9]*$", ErrorMessage = "Harus Angka")]
         public int Stok { get; set; }
         [Required]
+        [RegularExpression(@"^[0-9]*$", ErrorMessage = "Harus Angka")]
         public int Harga { get; set; }
         public int Terjual { get; set; }
         [Required]

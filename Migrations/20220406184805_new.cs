@@ -1,9 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 using MySql.EntityFrameworkCore.Metadata;
 
 namespace Furniture_Project.Migrations
 {
-    public partial class db_new : Migration
+    public partial class @new : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -58,6 +59,35 @@ namespace Furniture_Project.Migrations
                         onDelete: ReferentialAction.Restrict);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Tb_Pemesanan",
+                columns: table => new
+                {
+                    Id_Pesanan = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
+                    Tanggal_Pesan = table.Column<DateTime>(type: "datetime", nullable: false),
+                    Jumlah_Pesan = table.Column<int>(type: "int", nullable: false),
+                    Total_pesan = table.Column<double>(type: "double", nullable: false),
+                    BarangId = table.Column<int>(type: "int", nullable: true),
+                    UserName = table.Column<string>(type: "varchar(767)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Tb_Pemesanan", x => x.Id_Pesanan);
+                    table.ForeignKey(
+                        name: "FK_Tb_Pemesanan_Tb_Barang_BarangId",
+                        column: x => x.BarangId,
+                        principalTable: "Tb_Barang",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Tb_Pemesanan_Tb_User_UserName",
+                        column: x => x.UserName,
+                        principalTable: "Tb_User",
+                        principalColumn: "Name",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
             migrationBuilder.InsertData(
                 table: "Tb_Roles",
                 columns: new[] { "Id", "Name" },
@@ -69,6 +99,16 @@ namespace Furniture_Project.Migrations
                 values: new object[] { "2", "User" });
 
             migrationBuilder.CreateIndex(
+                name: "IX_Tb_Pemesanan_BarangId",
+                table: "Tb_Pemesanan",
+                column: "BarangId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Tb_Pemesanan_UserName",
+                table: "Tb_Pemesanan",
+                column: "UserName");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Tb_User_RolesId",
                 table: "Tb_User",
                 column: "RolesId");
@@ -76,6 +116,9 @@ namespace Furniture_Project.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Tb_Pemesanan");
+
             migrationBuilder.DropTable(
                 name: "Tb_Barang");
 

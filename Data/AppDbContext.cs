@@ -17,6 +17,7 @@ namespace Furniture_Project.Data
         public DbSet<Roles> Tb_Roles { get; set; }
         public DbSet<User> Tb_User { get; set; }
         public DbSet<Barang> Tb_Barang { get; set; }
+        public DbSet<Pemesanan> Tb_Pemesanan { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
