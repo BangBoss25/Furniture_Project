@@ -11,6 +11,8 @@ namespace Furniture_Project.Services.PesananService
         List<Pemesanan> AmbilSemuaPesanan();
         bool BuatPesanan(string Username, int id, int jumlah);
         bool HapusPesanan(int Id);
+
+        bool UbahPesananBarang(int id, int jumlah);
         Pemesanan AmbilPesananById(int Id);
     }
 }

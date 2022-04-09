@@ -37,6 +37,8 @@ namespace Furniture_Project.Areas.User.Controllers
             {
                 _psnServ.BuatPesanan(User.GetUsername(), id, Jumlah);
 
+                _psnServ.UbahPesananBarang(id, Jumlah);
+
                 return RedirectToAction("Index");
             }
 

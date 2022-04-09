@@ -54,5 +54,19 @@ namespace Furniture_Project.Services.PesananService
 
             return _pesanRepo.HapusPesananAsync(psn).Result;
         }
+
+        public bool UbahPesananBarang(int id, int jumlah)
+        {
+            var ambilId = _brgRepo.CariBarangAsync(id).Result;
+
+            if (ambilId != null)
+            {
+                ambilId.Terjual = ambilId.Terjual + jumlah;
+                ambilId.Stok = ambilId.Stok - jumlah;
+
+                return _brgRepo.UbahBarangAsync(ambilId).Result;
+            }
+            return false;
+        }
     }
 }

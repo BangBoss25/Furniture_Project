@@ -15,5 +15,7 @@ namespace Furniture_Project.Areas.Admin.Controllers
         {
             return View();
         }
+
+        public IActionResult FetchAPI() => View();
     }
 }

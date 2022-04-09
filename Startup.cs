@@ -42,7 +42,7 @@ namespace Furniture_Project
                 .AddCookie("CookieAuth", options =>
                 {
                     options.LoginPath = "/Akun/SignIn";
-                    options.AccessDeniedPath = "/Home/Dilarang";
+                    options.AccessDeniedPath = "/Akun/SignIn";
                 });
 
             services.AddScoped<IAkunRepository, AkunRepository>();
