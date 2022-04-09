@@ -21,6 +21,13 @@ namespace Furniture_Project.Services.AkunService
             return _ar.DaftarUserAsync(data).Result;
         }
 
+        public bool HapusAkun(string username)
+        {
+            var ak = _ar.CariUserAsync(username).Result;
+
+            return _ar.HapusAkunAsync(ak).Result;
+        }
+
         // User
         public List<User> AmbilSemuaUser()
         {
@@ -30,6 +37,12 @@ namespace Furniture_Project.Services.AkunService
         public User AmbilUserByUsername(string username)
         {
             return _ar.AmbilUserByUsernameAsync(username).Result;
+        }
+
+        public bool DaftarAdmin(User data)
+        {
+            data.Roles = _ar.AmbilRolesByIdAsync("1").Result;
+            return _ar.DaftarAdminAsync(data).Result;
         }
 
         // Roles

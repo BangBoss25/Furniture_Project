@@ -52,5 +52,15 @@ namespace Furniture_Project.Areas.User.Controllers
             }
             return NotFound();
         }
+
+        public IActionResult product_cart()
+        {
+            var allData = new PesananDashboard();
+
+            allData.barang = _brgServ.AmbilSemuaBarang();
+            allData.pemesanan = _psnServ.AmbilSemuaPesanan();
+
+            return View(allData);
+        }
     }
 }

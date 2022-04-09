@@ -1,5 +1,6 @@
 ﻿using Furniture_Project.Helper;
 using Furniture_Project.Models;
+using Furniture_Project.Services.AkunService;
 using Furniture_Project.Services.BarangService;
 using Furniture_Project.Services.PesananService;
 using Microsoft.AspNetCore.Authorization;
@@ -17,12 +18,14 @@ namespace Furniture_Project.Areas.Admin.Controllers
     {
         private readonly IBarangService _brgServ;
         private readonly IPesananService _psnServ;
+        private readonly IAkunService _akunServ;
         private object search;
 
-        public PesananController(IBarangService brgServ, IPesananService psnServ)
+        public PesananController(IBarangService brgServ, IPesananService psnServ, IAkunService akunServ)
         {
             _brgServ = brgServ;
             _psnServ = psnServ;
+            _akunServ = akunServ;
         }
 
         public IActionResult Index()
@@ -31,8 +34,23 @@ namespace Furniture_Project.Areas.Admin.Controllers
 
             allData.barang = _brgServ.AmbilSemuaBarang();
             allData.pemesanan = _psnServ.AmbilSemuaPesanan();
+            allData.user = _akunServ.AmbilSemuaUser();
 
             return View(allData);
+        }
+
+        public IActionResult Delete(int Id)
+        {
+            search = _psnServ.AmbilPesananById(Id);
+
+            if (search != null)
+            {
+                _psnServ.HapusPesanan(Id);
+
+                return RedirectToAction("Index");
+            }
+
+            return NotFound();
         }
     }
 }

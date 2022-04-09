@@ -29,6 +29,23 @@ namespace Furniture_Project.Controllers
             _email = e;
         }
 
+        public IActionResult DaftarAdmin()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult DaftarAdmin(User data)
+        {
+            if (ModelState.IsValid)
+            {
+                _akSer.DaftarAdmin(data);
+
+                return Redirect("/Admin/Admin/Index");
+            }
+            return View(data);
+        }
+
         public IActionResult SignUp()
         {
             return View();

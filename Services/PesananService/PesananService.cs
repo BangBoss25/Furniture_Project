@@ -42,5 +42,17 @@ namespace Furniture_Project.Services.PesananService
 
             return _pesanRepo.BuatPesananAsync(pesanan).Result;
         }
+
+        public Pemesanan AmbilPesananById(int Id)
+        {
+            return _pesanRepo.AmbilPesananByIdAsync(Id).Result;
+        }
+
+        public bool HapusPesanan(int Id)
+        {
+            var psn = _pesanRepo.CariPesananAsync(Id).Result;
+
+            return _pesanRepo.HapusPesananAsync(psn).Result;
+        }
     }
 }

@@ -7,14 +7,12 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Table Pe</h1>
-    <p class="mb-4">
-
-    </p>
+    
 
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <a asp-action="Create"><input type="submit" class="btn btn-outline-success" value="Add Data"></a>
+            <h1 class="h3 mb-2 text-gray-800">Table Pesanan</h1>
+            @*<a asp-action="Create"><input type="submit" class="btn btn-outline-success" value="Add Data"></a>*@
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -28,24 +26,24 @@
                             <th>Tanggal Pesan</th>
                             <th>Jumlah Pesanan</th>
                             <th>Total Pesanan</th>
+                            <th>Opsi</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach (var item in Model.pemesanan)
                         {
-                        <tr>
-                            <td>@Html.DisplayFor(modelItem => item.User.Username)</td>
-                            <td>@Html.DisplayFor(modelItem => item.Barang.NamaBarang)</td>
-                            <td><img src="@item.Barang.Image" alt="Image" width="100" /></td>
-                            <td>@Html.DisplayFor(modelItem => item.Barang.Harga)</td>
-                            <td>@Html.DisplayFor(modelItem => item.Tanggal_Pesan)</td>
-                            <td>@Html.DisplayFor(modelItem => item.Jumlah_Pesan)</td>
-                            <td>@Html.DisplayFor(modelItem => item.Total_pesan)</td>
-                            @*<td>
-                                <a asp-action="Update" asp-route-id="@item.Id"><i class="fas fa-edit"></i></a>
-                                <a asp-action="Delete" asp-route-id="@item.Id"><i class="fas fa-trash"></i></a>
-                            </td>*@
-                        </tr>
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.User.Name)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Barang.NamaBarang)</td>
+                                <td><img src="@item.Barang.Image" alt="Image" width="100" /></td>
+                                <td>@Html.DisplayFor(modelItem => item.Barang.Harga)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Tanggal_Pesan)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Jumlah_Pesan)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Total_pesan)</td>
+                                <td>
+                                    <a asp-action="Delete" asp-route-id="@item.Id_Pesanan"><i class="fas fa-trash"></i></a>
+                                </td>
+                            </tr>
                         }
                     </tbody>
                 </table>

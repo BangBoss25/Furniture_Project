@@ -22,11 +22,13 @@ namespace Furniture_Project.Models
     {
         public List<Barang> barang { get; set; }
         public List<Pemesanan> pemesanan { get; set; }
+        public List<User> user { get; set; }
 
         public PesananDashboard()
         {
             barang = new List<Barang>();
             pemesanan = new List<Pemesanan>();
+            user = new List<User>();
         }
     }
 }

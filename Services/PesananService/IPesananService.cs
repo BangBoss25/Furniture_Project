@@ -10,5 +10,7 @@ namespace Furniture_Project.Services.PesananService
     {
         List<Pemesanan> AmbilSemuaPesanan();
         bool BuatPesanan(string Username, int id, int jumlah);
+        bool HapusPesanan(int Id);
+        Pemesanan AmbilPesananById(int Id);
     }
 }

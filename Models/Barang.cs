@@ -11,6 +11,7 @@ namespace Furniture_Project.Models
         [Key]
         public int Id { get; set; }
         [Required]
+        [RegularExpression(@"^[a-zA-Z]*$", ErrorMessage = "Hanya Input Huruf")]
         public string NamaBarang { get; set; }
         public string Image { get; set; }
         [Required]

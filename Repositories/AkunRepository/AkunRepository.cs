@@ -30,6 +30,15 @@ namespace Furniture_Project.Repositories.AkunRepository
             return await _context.Tb_User.FirstOrDefaultAsync(x => x.Username == Username);
         }
 
+        public async Task<bool> HapusAkunAsync(User data)
+        {
+            _context.Remove(data);
+            await _context.SaveChangesAsync();
+
+            return true;
+        }
+
+
         // USER
         public async Task<List<User>> AmbilSemuaUserAsync()
         {
@@ -41,6 +50,13 @@ namespace Furniture_Project.Repositories.AkunRepository
             return await _context.Tb_User.FindAsync(username);
         }
 
+        public async Task<bool> DaftarAdminAsync(User data)
+        {
+            _context.Add(data);
+            await _context.SaveChangesAsync();
+
+            return true;
+        }
 
         //ROLES
         public async Task<List<Roles>> AmbilSemuaRolesAsync()

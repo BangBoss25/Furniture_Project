@@ -10,5 +10,8 @@ namespace Furniture_Project.Repositories.PesananRepository
     {
         Task<List<Pemesanan>> AmbilSemuaPesananAsync();
         Task<bool> BuatPesananAsync(Pemesanan data);
+        Task<bool> HapusPesananAsync(Pemesanan data);
+        Task<Pemesanan> AmbilPesananByIdAsync(int Id);
+        Task<Pemesanan> CariPesananAsync(int Id);
     }
 }

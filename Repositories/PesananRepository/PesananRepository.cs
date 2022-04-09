@@ -29,5 +29,22 @@ namespace Furniture_Project.Repositories.PesananRepository
 
             return true;
         }
+        public async Task<Pemesanan> AmbilPesananByIdAsync(int Id)
+        {
+            return await _context.Tb_Pemesanan.FirstOrDefaultAsync(x => x.Id_Pesanan == Id);
+        }
+
+        public async Task<Pemesanan> CariPesananAsync(int Id)
+        {
+            return await _context.Tb_Pemesanan.FirstOrDefaultAsync(x => x.Id_Pesanan == Id);
+        }
+
+        public async Task<bool> HapusPesananAsync(Pemesanan data)
+        {
+            _context.Remove(data);
+            await _context.SaveChangesAsync();
+
+            return true;
+        }
     }
 }
